@@ -8,12 +8,13 @@ const HELLO_QUERY = gql`
 `;
 
 const Hello: React.FC = () => {
-  // const { data, loading } = useQuery(HELLO_QUERY);
+  const { data, loading } = useQuery(HELLO_QUERY);
   return (
-    <>
-      {/* {loading && <p>loading...</p>}
-      {!loading && <pre>{JSON.stringify(data)}</pre>} */}
-    </>
+    <div>
+      <p className="text-lg mt-2 mb-4">Data from doing a query below:</p>
+      {loading && <p>loading...</p>}
+      {!loading && <pre>{JSON.stringify(data)}</pre>}
+    </div>
   );
 };
 

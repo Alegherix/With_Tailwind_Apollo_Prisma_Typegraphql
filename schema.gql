@@ -8,6 +8,7 @@ type Mutation {
 }
 
 type Query {
+  getUsers: [User!]!
   hello: String!
 }
 

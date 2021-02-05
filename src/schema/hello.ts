@@ -6,6 +6,7 @@ import {
   InputType,
   Mutation,
   ObjectType,
+  Query,
   Resolver,
 } from 'type-graphql';
 
@@ -40,5 +41,10 @@ export class UserResolver {
         name: input.name,
       },
     });
+  }
+
+  @Query((_returns) => [User])
+  async getUsers(@Ctx() ctx) {
+    return await ctx.prisma.user.findMany();
   }
 }
